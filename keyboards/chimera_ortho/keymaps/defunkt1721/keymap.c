@@ -31,6 +31,7 @@ enum {
 #define KC_CTDL MT(MOD_RCTL, KC_DEL)
 #define KC_ALTM MT(MOD_LALT, KC_MINS)
 #define KC_TBCL MT(MOD_LCTL, KC_TAB)
+#define KC_SLCL MT(MOD_RCTL, KC_SLSH)
 
 // Navigation
 #define KC_CPY LCTL(KC_C)
@@ -67,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
     ECPS,QUOT, COMM, DOT, P , Y   ,ALTM,      CTDL, F  , G  , C  , R  , L  ,BSPC,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-    TBCL, A  , O  , E  , U  , I   ,LBRA,      RBRA, D  , H  , T  , N  , S  ,SLSH,
+    TBCL, A  , O  , E  , U  , I   ,LBRA,      RBRA, D  , H  , T  , N  , S  ,SLCL,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
     LSPO, CLNS, Q , J  , K  , X   ,BSLS,      LALT, B  , M  , W  , V  , Z , RSPC,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
