@@ -30,8 +30,9 @@ enum {
 #define KC_ALDL MT(MOD_RALT, KC_DEL)
 #define KC_ALTM MT(MOD_LALT, KC_MINS)
 #define KC_TBCL MT(MOD_LCTL, KC_TAB)
-#define KC_SLCL MT(MOD_RCTL, KC_SLSH)
+#define KC_MICL MT(MOD_RCTL, KC_MINS)
 #define KC_GUIDEL MT(MOD_LGUI, KC_DEL)
+#define KC_SFENT MT(MOD_RSFT, KC_ENT)
 
 // Navigation
 #define KC_CPY LCTL(KC_C)
@@ -66,13 +67,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_DVORAK] = KC_KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-    GESC,QUOT, COMM, DOT, P , Y   ,ALTM,      ALDL, F  , G  , C  , R  , L  ,BSPC,
+    GESC,QUOT, COMM, DOT, P , Y   ,ALTM,      ALDL, F  , G  , C  , R  , L  ,SLSH,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-    TBCL, A  , O  , E  , U  , I   ,LBRA,      RBRA, D  , H  , T  , N  , S  ,SLCL,
+    TBCL, A  , O  , E  , U  , I   ,LBRA,      RBRA, D  , H  , T  , N  , S  ,MICL,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-   SHCPS, CLNS, Q , J  , K  , X   ,LPRN,      RPRN, B  , M  , W  , V  , Z , RSFT,
+   SHCPS, CLNS, Q , J  , K  , X   ,LPRN,      RPRN, B  , M  , W  , V  , Z ,SFENT,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-                      GUIDEL,SPNV,                SPSM, ENT
+                      GUIDEL,SPNV,                SPSM, BSPC
   // \------------------+----+----+---/       \---+----+----+-------------------/
   ),
 
