@@ -16,22 +16,22 @@ enum chimera_ortho_layers
 
 //Tap Dance Declarations
 enum {
-  TD_ESC_CAPS = 0,
+  TD_SHIFT_CAPS = 0,
   TD_COLON,
   TD_LBRACE,
   TD_RBRACE
 };
 
 // Layer toggles
-#define KC_SYMB TG(_SYMBOLS)
 #define KC_SPNV LT(_NAV,KC_SPC)
 #define KC_SPSM LT(_SYMBOLS, KC_SPC)
 
 // Mod toggles
-#define KC_CTDL MT(MOD_RCTL, KC_DEL)
+#define KC_ALDL MT(MOD_RALT, KC_DEL)
 #define KC_ALTM MT(MOD_LALT, KC_MINS)
 #define KC_TBCL MT(MOD_LCTL, KC_TAB)
 #define KC_SLCL MT(MOD_RCTL, KC_SLSH)
+#define KC_GUIDEL MT(MOD_LGUI, KC_DEL)
 
 // Navigation
 #define KC_CPY LCTL(KC_C)
@@ -41,7 +41,7 @@ enum {
 #define KC_FNDE LCTL(KC_F)
 
 // Tap dance
-#define KC_ECPS TD(TD_ESC_CAPS)
+#define KC_SHCPS TD(TD_SHIFT_CAPS)
 #define KC_CLNS TD(TD_COLON)
 #define KC_LBRA TD(TD_LBRACE)
 #define KC_RBRA TD(TD_RBRACE)
@@ -50,12 +50,12 @@ enum {
 
 // Fillers to make layering more clear
 #define _______ KC_TRNS
-#define XXXXXXX KC_NO
+#define KC_XXXX KC_NO
 #define KC_ KC_TRNS
 
 // Tap Dance actions
 qk_tap_dance_action_t tap_dance_actions[] = {
-  [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
+  [TD_SHIFT_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LSHIFT, KC_CAPS),
   [TD_LBRACE] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_LCBR),
   [TD_RBRACE] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, KC_RCBR),
   [TD_COLON] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, LSFT(KC_SCLN))
@@ -66,35 +66,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_DVORAK] = KC_KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-    ECPS,QUOT, COMM, DOT, P , Y   ,ALTM,      CTDL, F  , G  , C  , R  , L  ,BSPC,
+    GESC,QUOT, COMM, DOT, P , Y   ,ALTM,      ALDL, F  , G  , C  , R  , L  ,BSPC,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
     TBCL, A  , O  , E  , U  , I   ,LBRA,      RBRA, D  , H  , T  , N  , S  ,SLCL,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-    LSPO, CLNS, Q , J  , K  , X   ,BSLS,      LALT, B  , M  , W  , V  , Z , RSPC,
+   SHCPS, CLNS, Q , J  , K  , X   ,LPRN,      RPRN, B  , M  , W  , V  , Z , RSFT,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-                        LGUI,SPNV,                SPSM, ENT
+                      GUIDEL,SPNV,                SPSM, ENT
   // \------------------+----+----+---/       \---+----+----+-------------------/
   ),
 
   [_NAV] = KC_KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-    GRV  ,    ,    , UP ,    ,   ,PGUP,      HOME,    ,    ,    ,     ,FNDE,NUBS,
+        ,XXXX,XXXX, UP ,XXXX,XXXX,XXXX,       XXXX,XXXX,XXXX,PGUP,XXXX,FNDE,XXXX,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-        ,    ,LEFT,DOWN,RGHT,    ,PGDN,      END ,    ,    ,    ,     ,CTE ,UNDO,
+        ,XXXX,LEFT,DOWN,RGHT,XXXX,XXXX,       XXXX,XXXX,HOME,PGDN,END, CTE ,UNDO,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-        ,    ,    ,    ,    ,    ,PSCR,      INS ,    ,    ,    ,     ,CPY ,PTE ,
+        ,XXXX,XXXX,XXXX,XXXX,XXXX,PSCR,       INS,XXXX,XXXX,XXXX, XXXX,CPY ,PTE ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-                            ,    ,                    ,
+                             XXXX,XXXX,             LALT,LCTL
   // \------------------+----+----+---/       \---+----+----+-------------------/
   ),
 
   [_SYMBOLS] = KC_KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-        , F1 , F2 , F3 , F4 , F5 ,    ,          , F6 , F7 , F8 , F10, F11, F12,
+    GRV , QUOT,COMM,DOT , F4 , F5 , F11,        F12 , F6 , F7 , F8 , F9,F10,QUES,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-        ,  1 ,  2 ,  3 ,  4 ,  5 ,TILD,          ,  6 ,  7 ,  8 ,  9 ,  0 ,EQL ,
+        ,   1 ,  2 ,  3 ,  4 ,  5 ,BSLS,      SLSH,  6 ,  7 ,  8 ,  9 ,  0 ,EQL ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-        ,EXLM, AT ,HASH, DLR,PERC,PLUS,      MINS,CIRC,AMPR,ASTR,SLSH,PIPE,    ,
+        ,EXLM,  AT ,HASH, DLR,PERC,MINS,      PLUS,CIRC,AMPR,ASTR,LPRN,RPRN,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
                             ,    ,                    ,RSPC
   // \------------------+----+----+---/       \---+----+----+-------------------/
