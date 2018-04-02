@@ -31,7 +31,7 @@ enum {
 #define KC_ALDL MT(MOD_RALT, KC_DEL)
 #define KC_ALTM MT(MOD_LALT, KC_MINS)
 #define KC_TBCL MT(MOD_LCTL, KC_TAB)
-#define KC_SLCL MT(MOD_RCTL, KC_SLSH)
+#define KC_MICL MT(MOD_RCTL, KC_SLSH)
 #define KC_GUIDEL MT(MOD_LGUI, KC_DEL)
 #define KC_SFENT MT(MOD_RSFT, KC_ENT)
 
@@ -68,13 +68,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_DVORAK] = KC_KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-    GESC,QUOT, COMM, DOT, P , Y   ,ALTM,      ALDL, F  , G  , C  , R  , L  ,BSPC,
+    ESC,QUOT, COMM, DOT, P , Y    ,LBRA,      RBRA, F  , G  , C  , R  , L  ,SLSH,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-    TBCL, A  , O  , E  , U  , I   ,LBRA,      RBRA, D  , H  , T  , N  , S  ,SLCL,
+    TBCL, A  , O  , E  , U  , I   ,LPRN,      RPRN, D  , H  , T  , N  , S  ,MICL,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-   SHCPS, SCLN, Q , J  , K  , X   ,LPRN,      RPRN, B  , M  , W  , V  , Z  ,RSFT,
+   SHCPS, SCLN, Q , J  , K  , X   ,LALT,      RALT, B  , M  , W  , V  , Z  ,RSFT,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-                      GUIDEL,SPNV,                SPSM, ENTBR
+                        BSPC,SPNV,                SPSM, ENTBR
   // \------------------+----+----+---/       \---+----+----+-------------------/
   ),
 
@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
     GRV , QUOT,COMM,DOT , F4 , F5 , F11,        F12 , F6 , F7 , F8 , F9,F10,QUES,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-        ,   1 ,  2 ,  3 ,  4 ,  5 ,BSLS,      SLSH,  6 ,  7 ,  8 ,  9 ,  0 ,MINS,
+        ,   1 ,  2 ,  3 ,  4 ,  5 ,BSLS,      SLSH,  6 ,  7 ,  8 ,  9 ,  0 ,UNDS,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
         ,EXLM,  AT ,HASH, DLR,PERC,MINS,      PLUS,CIRC,AMPR,ASTR,LPRN,RPRN,EQL,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
