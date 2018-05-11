@@ -16,16 +16,18 @@ enum custom_keycodes {
   ADJUST,
 };
 
-#define KC_ KC_TRNS
+// Fillers to make layering more clear
 #define _______ KC_TRNS
+#define KC_XXXX KC_NO
+#define KC_ KC_TRNS
 
 #define KC_LOWR LOWER
 #define KC_RASE RAISE
-#define KC_RST RESET
-#define KC_BL_S BL_STEP
-#define KC_DBUG DEBUG
+
+// RGB keycodes
 #define KC_RTOG RGB_TOG
 #define KC_RMOD RGB_MOD
+#define KC_RRMOD RGB_RMOD
 #define KC_RHUI RGB_HUI
 #define KC_RHUD RGB_HUD
 #define KC_RSAI RGB_SAI
@@ -35,60 +37,61 @@ enum custom_keycodes {
 
 #define KC_TBCL MT(MOD_LCTL, KC_TAB)
 #define KC_MICL MT(MOD_LCTL, KC_MINS)
+#define KC_SCLG MT(MOD_LGUI, KC_SCLN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  [_DVORAK] = KC_KEYMAP(
+  [_DVORAK] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     DEL , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,BSPC,
+     ESC , 1  , 2  , 3  , 4  ,  5 ,                6  , 7  , 8  , 9  , 0  ,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     ESC ,QUOT, COMM, DOT, P , Y  ,                F  , G  , C  , R  , L, SLSH,
+     GRV ,QUOT,COMM, DOT, P ,  Y  ,                F  , G  , C  , R  , L,  SLSH,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TBCL, A  , O  , E  , U  , I  ,                D  , H  , T  , N  , S ,MICL,
+     TBCL, A  , O  , E  , U  , I  ,                D  , H  , T  , N  , S , MICL,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT,SCLN, Q , J  , K  , X  ,SPC ,     SPC ,  B  , M  , W  , V  , Z , RSFT,
+     LSFT,SCLG, Q , J  , K  , X  ,SPC ,     ENT ,  B  , M  , W  , V  , Z , RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LOWR,SPC ,         SPC ,RASE,ENT
+                       LALT,LOWR,SPC ,         ENT ,RASE,RALT
   //                  `----+----+----'        `----+----+----'
   ),
 
-  [_LOWER] = KC_KEYMAP(
+  [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     TILD,    ,     ,  ,     ,    ,                   ,    ,    ,    ,    ,    ,
+     XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,               XXXX,XXXX,XXXX,XXXX,XXXX,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     GRV ,    ,    , UP,    ,    ,                   ,    ,PGUP,    ,    ,    ,
+     XXXX,XXXX,XXXX, UP ,XXXX,XXXX,               XXXX,XXXX,PGUP,XXXX,XXXX,XXXX,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,LEFT,DOWN,RGHT,   ,                    ,HOME,PGDN,END ,   ,    ,
+     XXXX,XXXX,LEFT,DOWN,RGHT,XXXX,               XXXX,HOME,PGDN,END ,XXXX,XXXX,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     BL_S,    ,    ,    ,   ,   ,    ,         ,    ,    ,    ,    ,    ,    ,
+     LSFT,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,     XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,XXXX,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,             ,    ,
+                        LALT,    ,XXXX,       XXXX,    ,LCTL
   //                  `----+----+----'        `----+----+----'
   ),
 
-  [_RAISE] = KC_KEYMAP(
+  [_RAISE] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,    ,
+         ,GRV ,DLR ,LCBR,RCBR,    ,               TILD,PIPE,AMPR,COLN,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,MPRV,MNXT,VOLU,PGUP,UNDS,               EQL ,HOME,    ,    ,    ,BSLS,
+         ,LBRC,RBRC,LPRN,RPRN,    ,               NUHS,EXLM, EQL,SCLN,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     MUTE,MSTP,MPLY,VOLD,PGDN,MINS,    ,         ,PLUS,END ,    ,    ,    ,    ,
+         ,BSLS,SLSH,LABK,RABK,    ,    ,         ,NUBS,PLUS,MINS,UNDS,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
   ),
 
-  [_ADJUST] = KC_KEYMAP(
+  [_ADJUST] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,                   ,MUTE,MSTP,MPLY,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     RTOG,RMOD,RHUI,RSAI,RVAI,    ,                   ,    ,    ,    ,    ,    ,
+     RTOG,RMOD,RHUI,RSAI,RVAI,    ,                   ,    ,VOLU,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,   ,RHUD,RSAD,RVAD,    ,                   ,    ,    ,    ,    ,    ,
+        ,RRMOD,RHUD,RSAD,RVAD,    ,                    ,MPRV,VOLD,MNXT,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     BL_S,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
@@ -107,13 +110,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         persistent_default_layer_set(1UL<<_DVORAK);
       }
-      rgblight_setrgb(0x00,0x00,0xff);
       return false;
       break;
     case LOWER:
       if (record->event.pressed) {
         layer_on(_LOWER);
-        rgblight_setrgb(0x00,0xff,0x00);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
       } else {
         layer_off(_LOWER);
@@ -124,7 +125,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case RAISE:
       if (record->event.pressed) {
         layer_on(_RAISE);
-        rgblight_setrgb(0x00,0x00,0xff);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
       } else {
         layer_off(_RAISE);
@@ -135,7 +135,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ADJUST:
       if (record->event.pressed) {
         layer_on(_ADJUST);
-        rgblight_setrgb(0xff,0x00,0x00);
       } else {
         layer_off(_ADJUST);
       }
