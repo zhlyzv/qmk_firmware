@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" title="light">
   <link rel="stylesheet" href="qmk.css" title="dark" disabled>
+  <link rel="stylesheet" href="sidebar.css" />
 </head>
 <body>
   <div id="app"></div>
@@ -16,7 +17,7 @@
       name: 'QMK Firmware',
       nameLink: 'https://qmk.fm/',
       repo: 'qmk/qmk_firmware',
-      loadSidebar: true,
+      loadSidebar: '_summary.md',
       auto2top: true,
       formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
       search: {
@@ -24,7 +25,8 @@
         placeholder: 'Search Documentation...',
         noData: 'We could not find any documents matching your search.',
         depth: 6
-      }
+      },
+      fallbackLanguages: ['zh']
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
