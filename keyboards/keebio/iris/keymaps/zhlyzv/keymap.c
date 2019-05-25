@@ -73,11 +73,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,GRV ,DLR ,LCBR,RCBR,    ,               TILD,PIPE,AMPR,COLN,    ,    ,
+         ,GRV ,DLR ,LCBR,RCBR,XXXX,               XXXX,TILD,PIPE,AMPR,COLN,XXXX,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LBRC,RBRC,LPRN,RPRN,    ,               NUHS,EXLM, EQL,SCLN,    ,    ,
+         ,LBRC,RBRC,LPRN,RPRN,XXXX,               XXXX,NUHS,EXLM, EQL,SCLN,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,BSLS,SLSH,LABK,RABK,    ,    ,         ,NUBS,PLUS,MINS,UNDS,    ,    ,
+         ,BSLS,SLSH,LABK,RABK,XXXX,    ,         ,XXXX,NUBS,PLUS,MINS,UNDS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
